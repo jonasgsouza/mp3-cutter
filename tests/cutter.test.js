@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const Duration = require('../lib/duration.js');
-const MP3Cutter = require('../lib/index.js')
+const { MP3Cutter } = require('../lib/index.js')
 
 const files = [
     { name: 'sound1.mp3', duration: 121, start: 26, end: 46, newDuration: 20 },
