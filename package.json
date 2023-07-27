@@ -26,7 +26,7 @@
     "bin": {
         "mp3-cutter": "./bin/mp3-cutter"
     },
-    "types": "index.d.ts",
+    "types": "lib/index.d.ts",
     "main": "lib/index.js",
     "scripts": {
         "test": "jest --verbose"
