@@ -1,51 +1,67 @@
+### This is a fork from the original [project](https://github.com/cevadtokatli/mp3-cutter) created by cevadtokatli
+
 # MP3 Cutter
 MP3 Cutter is a JavaScript library and a NodeJS module that allows you to cut your MP3 files by seconds.
 
-## NPM
-```
-npm install --save mp3-cutter
-```
-
-## Yarn
-```
-yarn add mp3-cutter
-```
-
 ## Usage
-```
-const MP3Cutter = require('mp3-cutter');
 
-MP3Cutter.cut({
-    src: 'source.mp3',
-    target: 'target.mp3',
+```
+const { MP3Cutter } = require('mp3-cutter');
+
+new MP3Cutter({
+    input: 'source.mp3',
     start: 25,
     end: 70 
-});
+}).toFile('target.mp3');
+```
+It's possible to pass and receive a Buffer directly:
+
+```
+const { MP3Cutter } = require('mp3-cutter');
+const fs = require('fs);
+
+const buffer = new MP3Cutter({
+    input: fs.readFileSync('source.mp3'),
+    start: 25,
+    end: 70 
+}).toBuffer();
 ```
 
-### Method
-##### ```cut(Object options)```
+And use it with streams. It's useful when your source it's not a file
+```
+const { MP3Cutter } = require('mp3-cutter');
+const fs = require('fs);
+
+fs.createReadStream('source.mp3')
+    .pipe(new MP3Cutter({
+        start,
+        end
+    }))
+    .pipe(fs.createWriteStream('target.mp3'))
+    .on('finish', () => console.log('finished!'))
+    .on('error', error => console.error('Error!'))
+```
+
+### Reference
+##### ```constructor(options: Options)```
 
 #### Options
 
-##### ```src {String}```
-Path to the file to be cut.
+##### ```input: Buffer|string```
+Path to the file to be cut or a Buffer.
 
-##### ```target {String}```
-Path of the output file.
-
-##### ```start {Number}```
+##### ```start: Number```
 Start position in seconds.
 
-##### ```end {Number}```
+##### ```end: Number```
 End position in seconds.
 
-### CLI Tool
-You can also use MP3 Cutter on the command line.
-```
-$ npm install -g mp3-cutter
-$ mp3-cutter --src source.mp3 --target target.mp3 --start 10 --end 50
-```
+### Methods
+#### ```toFile(dest: string)```
+Write the output to a file
+
+#### ```toBuffer()```
+Return the output Buffer
 
 ## License
 MP3 Cutter is provided under the [MIT License](https://opensource.org/licenses/MIT).

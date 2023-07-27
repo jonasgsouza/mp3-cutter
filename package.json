@@ -10,13 +10,12 @@
         "cutter"
     ],
     "author": {
-        "name": "Cevad Tokatli",
-        "email": "cevadtokatli@hotmail.com",
-        "url": "http://cevadtokatli.com"
+        "name": "Jonas Souza",
+        "email": "jonas.gdsouza@gmail.com"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/cevadtokatli/mp3-cutter"
+        "url": "https://github.com/jonasgsouza/mp3-cutter"
     },
     "files": [
         "lib",
