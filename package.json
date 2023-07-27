@@ -24,7 +24,7 @@
     ],
     "license": "MIT",
     "types": "lib/types/index.d.ts",
-    "main": "lib/cutter.js",
+    "main": "lib/index.js",
     "scripts": {
         "test": "jest --verbose"
     },
