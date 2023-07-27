@@ -23,11 +23,8 @@
         "bin"
     ],
     "license": "MIT",
-    "bin": {
-        "mp3-cutter": "./bin/mp3-cutter"
-    },
     "types": "lib/types/index.d.ts",
-    "main": "lib/index.js",
+    "main": "lib/cutter.js",
     "scripts": {
         "test": "jest --verbose"
     },
