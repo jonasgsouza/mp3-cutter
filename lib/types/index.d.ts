@@ -1,5 +1,5 @@
 declare module 'mp3-cutter' {
-    declare class MP3Cutter {
+    class MP3Cutter {
 
         constructor(options: { input: Buffer | string, start: number, end: number });
 
@@ -7,4 +7,6 @@ declare module 'mp3-cutter' {
 
         toBuffer(): Buffer;
     }
+
+    declare function cutMP3(options: { input: Buffer | string, start: number, end: number }): MP3Cutter;
 }
