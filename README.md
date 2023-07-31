@@ -6,9 +6,9 @@ MP3 Cutter is a JavaScript library and a NodeJS module that allows you to cut yo
 ## Usage
 
 ```
-const { MP3Cutter } = require('mp3-cutter');
+const { cutMP3 } = require('mp3-cutter');
 
-new MP3Cutter({
+cutMP3({
     input: 'source.mp3',
     start: 25,
     end: 70 
@@ -20,7 +20,7 @@ It's possible to pass and receive a Buffer directly:
 const { MP3Cutter } = require('mp3-cutter');
 const fs = require('fs);
 
-const buffer = new MP3Cutter({
+const buffer = cutMP3({
     input: fs.readFileSync('source.mp3'),
     start: 25,
     end: 70 
@@ -33,7 +33,7 @@ const { MP3Cutter } = require('mp3-cutter');
 const fs = require('fs);
 
 fs.createReadStream('source.mp3')
-    .pipe(new MP3Cutter({
+    .pipe(cutMP3({
         start,
         end
     }))
